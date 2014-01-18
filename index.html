@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>How Did I Make That?</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+      <div id="header" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a id="site-name" class="navbar-brand" href="#">How Did I Make That?</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active" id="home-li"><a href="#" id="go-home-lnk">Home</a></li>
+            <li id="mybook-li"><a href="#mybook" id="go-mybook-lnk">My Book</a></li>
+          </ul>
+          <form class="navbar-form navbar-right" role="form">
+            <div class="form-group">
+              <!-- <div class="input-group"> -->
+                <!-- <span class="input-group-btn"> -->
+                    <!-- <button class="btn btn-default" type="buttpn">Search</button> -->
+                <!-- </span> -->
+                <input type="search" placeholder="Search My Recipes..." class="form-control">
+              <!-- </div> -->
+            </div>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+    <div class="container" id="index-body">
+
+      <div class="welcome">
+        <h1 class="on-bg-text">Welcome!</h1>
+        <p class="lead on-bg-text">Add your custom recipes here.</p>
+        <div id="login-prompt" class="container ">
+          <p class="lead on-bg-text">But first: Please Authenticate with Facebook</p>
+          <fb:login-button show-faces="true" width="200" class="hide" id="real-fb-login" max-rows="1"></fb:login-button>
+          <button id="login" class="btn btn-primary">Login with Facebook</button>
+        </div>
+        
+
+
+
+
+        <div class="container new-card">
+          <form role="form" class="new-card-data">
+            <input type="text" id="recipe-name" class="form-control" placeholder="Name" style="font-weight: bold;">
+            <img id="preview" src="#" alt="recipe-image" />
+            <input type="file" name="uploadField" id="img-upload" class="form-control"/>
+          </form>
+            <div class="vertical-line"></div>
+            <div class="ingredient-list form-group">
+              <p class="card-label lead">Ingredients:</p>
+              <ul id="ingredient-ul" class="list-group">
+
+              </ul>
+              <form class="dynamic-ingredient">
+                <input type="text" class="form-control ingredient-item" placeholder="New Ingredient">
+              </form>
+            </div>
+            <!-- <button id="new-ingredient"class="btn btn-warning new-row">Add Ingredient</button> -->
+            <div class="vertical-line"></div>
+            <div class="action-list">
+              <p class="card-label lead">Procedure:</p>
+              <ul id="action-ul" class="list-group">
+
+              </ul>
+              <form class="dynamic-action">
+                <input type="text" class="form-control action-item" placeholder="New Step">
+              </form>
+            </div>
+            <!-- <button id="new-action" class="btn btn-warning new-row">Add Step</button> -->
+            <div class="vertical-line"></div>
+          <form id="time-submit">
+            <p class="card-label lead">Preparation Time:</p>
+            <input type="text" class="form-control" placeholder="How Long Start to Finish?">
+            <button id="save-card-btn" class="btn btn-primary new-row" type="submit">Save This Recipe</button>
+          </form>
+        </div>
+      </div>
+      <!-- <footer>
+        <p>&copy; Company 2013</p>
+      </footer> -->
+    </div><!-- index-body -->
+
+    <div class="container" id="mybook-body">
+      <div class="welcome">
+        <h1 class="on-bg-text">Your Recipes</h1>
+        <p class="lead on-bg-text">Share Away!</p>
+
+        <a href="#"><div class="recipe-view container" id="recipe-num">
+          <div class="recipe-view-text">
+            <p class="recipe-view-title"><a id="recipe-num-link" href="#"><span class="lead">Sample</span></a><span class="recipe-view-time">         (36 minutes)</span></p>
+            <div class="social-share">
+              <div class="pinterest-share-button share-button">
+                <a href="http://www.pinterest.com/pin/create/button/
+                    ?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F
+                    &media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg
+                    &description=Next%20stop%3A%20Pinterest"
+                    data-pin-do="buttonPin"
+                    data-pin-config="above">
+                    <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
+                </a>
+              </div>
+              <div class="fb-share-button share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
+              <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=397989610346916";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
+            </div>
+          </div>
+          <div class="recipe-view-pic">
+            <img src="assets/mhacks.png">
+          </div>
+        </div></a>
+      </div>
+    </div>
+
+    <!-- <div class="container line-header ">
+      <div class=" header-margin margin"></div>
+      <div class=" header-textarea textarea">
+        
+      </div>
+    </div>
+    <div class="container line-middle ">
+      <div class=" line-margin margin"></div>
+      <div class=" line-textarea textarea">
+        
+      </div>
+    </div>
+    <div class="container line-middle ">
+      <div class=" line-bottom-margin margin"></div>
+      <div class=" line-bottom-textarea textarea">
+        
+      </div>
+    </div> -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fb.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>
+    <script src="js/parse.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

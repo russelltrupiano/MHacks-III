@@ -1,0 +1,177 @@
+body {
+  padding-top: 35px;
+  /*background: #FF7F24;*/
+  background: url('../assets/tile.png');
+
+  /*opacity: .4;*/
+}
+
+#header {
+  /*background: #FFE4B5;*/
+  /*border-radius: 1px solid #FFE4B5;*/
+}
+
+#site-name {
+  /*color: #CD3700;*/
+}
+
+#search-bar {
+  /*text-align: right;*/
+  /*border-radius: 20px;*/
+}
+
+.welcome {
+  /*padding: 40px 15px;*/
+  padding-top: 40px;
+  text-align: center;
+}
+
+.entry-card {
+  text-align: left;
+}
+
+.new-card {
+  padding: 50px;
+  padding-top: 30px;
+  border: 1px gray solid;
+  border-radius: 5px;
+  margin: auto;
+  background: url('../assets/cardbg.png');
+
+}
+
+.ingredient-list-amount {
+  width: 20%;
+}
+
+.vertical-line {
+  height: 1px;
+  width: 100%;
+  background: gray;
+
+}
+
+.new-card input {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+#new-ingredient, #new-action {
+  margin-bottom: 8px;
+}
+
+#recipe-name {
+  font-size: 2.4em;
+  height: 60px;
+}
+
+#save-card-btn {
+  margin-top: 30px;
+}
+
+.card-label {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.on-bg-text {
+  color: #E5E5E5;
+}
+
+#preview {
+  max-height: 150px;
+  max-width: 150px;
+}
+
+#img-upload {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#login {
+  /*margin-top: 8px;*/
+  margin-bottom: 10px;
+}
+
+.recipe-view {
+  height: 155px;
+  background: url('../assets/recipebackground.png');
+  padding-top: 15px;
+  border-radius: 5px;
+}
+
+.recipe-view-text {
+  float: left;
+  text-align: left;
+  height: 63px;
+  vertical-align: middle;
+  padding-top: 19px;
+  padding-left: 19px;
+}
+
+.social-share {
+  height: 62px;
+}
+
+.recipe-view-text lead {
+  font-size: 2em;
+}
+
+.recipe-view-pic {
+  float: right;
+}
+
+.recipe-view-pic img {
+  max-width: 125px;
+  max-height: 125px;
+}
+
+.share-button {
+  margin-top: 10px;
+}
+
+.margin {
+  width: 6%;
+  float: left;
+  border-right: solid #ff0000 1px;
+  background: #f7e672;
+}
+
+.textarea {
+  background: #f7e672;
+  float: right;
+  width: 94%;
+}
+
+.header-margin {
+  height: 70px;
+  border-bottom: solid blue 1px;
+}
+
+.header-textarea {
+  height: 70px;
+  border-bottom: solid blue 1px;
+}
+
+.line-margin {
+  height: 34px;
+  border-bottom: solid blue 1px;
+}
+
+.line-textarea {
+  height: 34px;
+  border-bottom: solid blue 1px;
+}
+
+.line-bottom-margin {
+  height: 34px;
+}
+
+.line-bottom-textarea {
+  height: 34px;
+}
+
+li {
+  text-align: left;
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Steak",
+  "ingredients": [
+    {"ingredient-0": "meat"},
+    {"ingredient-1": "pepper"}
+  ],
+  "actions": [
+    {"action-0": "cook"},
+    {"action-1": "eat"}
+  ],
+  "time": "20"
+}

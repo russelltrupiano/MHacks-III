@@ -1,3 +1,6 @@
+
+
+
 // window.fbAsyncInit = function() {
 //   // init the FB JS SDK
 //   FB.init({
@@ -13,31 +16,7 @@
 
   
 
-// FB.getLoginStatus(function(response) {
-//   if (response.status === 'connected') {
-//     console.log('connected');
-//     // user is good to go
-//     setUserInfo(FB, response);
-//     $(".new-card").show();
-//     $("#login-prompt").hide();
 
-//   } else if (response.status === 'not_authorized') {
-//     // the user is logged in to Facebook, 
-//     // but has not authenticated your app
-//     console.log('no auth');
-
-//     // $(".new-card").hide();
-//     $("#login-prompt").show();
-//   } else {
-//     // the user isn't logged in to Facebook.
-//     console.log('no logged in');
-
-//     // $("#index-body").hide();
-//     $("#login-prompt").show();
-//   }
-//  });
-
-// }
 
 // function fbLogin(FB) {
 //     FB.login(function(response) {

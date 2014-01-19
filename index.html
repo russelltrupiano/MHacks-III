@@ -27,7 +27,10 @@
   </head>
 
   <body>
+    
+    <!-- Facebook SDK Init -->
     <div id="fb-root"></div>
+
       <div id="header" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -63,10 +66,10 @@
       <div class="welcome">
         <h1 class="on-bg-text">Welcome!</h1>
         <p class="lead on-bg-text">Add your custom recipes here.</p>
-        <div id="login-prompt" class="container hide">
+        <div id="login-prompt" class="container">
           <p class="lead on-bg-text">But first: Please Authenticate with Facebook</p>
-          <fb:login-button show-faces="true" width="200" class="hide" id="real-fb-login" max-rows="1"></fb:login-button>
-          <button id="login" class="btn btn-primary">Login with Facebook</button>
+          <!-- <fb:login-button show-faces="true" width="200" class="hide" id="real-fb-login" max-rows="1"></fb:login-button>
+          <button id="login" class="btn btn-primary">Login with Facebook</button> -->
         </div>
         
         <div class="container new-card">
@@ -267,7 +270,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="js/jquery.json-2.4.js"></script>
+    <!-- <script src="js/jquery.json-2.4.js"></script> -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/fb.js"></script>
     <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>

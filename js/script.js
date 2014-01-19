@@ -34,6 +34,7 @@ $(document).ready(function(){
   $("#img-upload-pretty").click(function(e){
     e.preventDefault();
     $("#img-upload").click();
+    $("#remove-upload").removeClass("hide");
   });
 
   $("#new-card-data").submit(function(e) {
@@ -115,9 +116,30 @@ $(document).ready(function(){
       reader.readAsDataURL(input.files[0]);
     }
   }
+
+  // var img_shown = false;
+
   $("#img-upload").change(function() {
-    readURL(this);
-    $("#preview").show();
-    $("#img-upload-pretty").text("Change Photo")
+    // if (img_shown == false){
+      readURL(this);
+      $("#preview").show();
+      // img_shown = true;
+      $("#img-upload-pretty").text("Change Photo");
+    // }
+    // else {
+    //   $("#preview").hide();
+    //   img_shown = false;
+    //   $("#img-upload-pretty").text("Add a Photo");
+    // }
+    
   });
+
+  $("#remove-upload").click(function(e) {
+    e.preventDefault();
+    $("#preview").hide();
+    $("#img-upload-pretty").text("Add A Photo");
+    $("#remove-upload").hide();
+  });
+
+  
 });

@@ -13,6 +13,7 @@ window.fbAsyncInit = function() {
   });
   // FBLogin();
   auth_check();
+  fetchUserData();
 };
 
 // Here 'null' is replaced witht he permissions the app needs
@@ -163,21 +164,41 @@ function pushRecipe() {
   var recipe = new Recipe();
 
   var name_p = $("#recipe-name").val();
-    var time_p = $("#recipe-time").val();
+  var time_p = $("#recipe-time").val();
 
-    var ingredients_p = assemble_ingredients();
-    var actions_p = assemble_actions();
+  var ingredients_p = assemble_ingredients();
+  var actions_p = assemble_actions();
 
-    FB.api(
-      "/me", function(response){
-        console.log(typeof response.id);
+  console.log($("#preview").attr('src'));
 
-        recipe.save({user: response.id, name: name_p, ingredients: ingredients_p, actions: [actions_p], time: time_p, date: new Date()}).then(function(object) {
-          alert("Your data was finally pushed");
+  FB.api(
+    "/me", function(response){
+      console.log(response.id);
+
+      recipe.save({user: response.id, name: name_p, ingredients: ingredients_p, actions: [actions_p], time: time_p, date: new Date()}).then(function(object) {
+        alert("Your data was finally pushed");
+        $("input").each(function(index){
+          $(this).val("");
         });
-      }
-    );
+        $("#new-card-data li").remove();
+        var old_button = $("#img-upload");
+        $("#remove-upload").click();
+      });
+    }
+  );
+}
 
-    
+function fetchUserData() {
+  FB.api(
+    "/me", function(response){
+      var Recipe = Parse.Object.extend("Recipe");
 
-  }
+      var query = new Parse.Query(Recipe);
+      // var uniq_user = response.id;
+      console.log("uniq_user: "+response.id);
+      query.contains("user", "1558874091").each(function(event) {
+        console.log(event[name]);
+      });
+    }
+  );
+}

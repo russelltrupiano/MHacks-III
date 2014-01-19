@@ -10,43 +10,78 @@
   function assemble_ingredients() {
     var ingredient_data = [];
 
-    $(".ingredient-item").each(function(index, element){
+    $(".ingredient-item").each(function(index, value){
       
-      var keyname = $(element).attr('id');
-      var value_str = $(this).val();
-      var key_str = new String(keyname);
+      var keyname = $(value).attr('name');
+      console.log(keyname);
+
+      var value_str = $(value).val();
 
       console.log(typeof keyname);
       console.log(typeof value_str);
 
       ingredient_data.push({
-        key: key_str,
+        key: keyname,
         value: value_str
       });
-      // var value_str = $(this).val();
-      // var key = $(element).attr('id');
-
-      // var appendage = {};
-      // appendage[key] = value_str;
-      // ingredient_data.push(appendage);
-      // console.log(index);
     });
 
-    return ingredient_data;
+    var result = [];
+
+    for (var i = 0; i < ingredient_data.length; i++) {
+
+      var mini = {};
+      
+      mini[ingredient_data[i].key] = ingredient_data[i].value;
+
+      result.push(mini);
+    };
+    console.log(result);
+    return result;
   }
 
+  function assemble_actions() {
+    var action_data = [];
+
+    $(".action-item").each(function(index, value){
+      
+      var keyname = $(value).attr('name');
+      console.log(keyname);
+
+      var value_str = $(value).val();
+
+      console.log(typeof keyname);
+      console.log(typeof value_str);
+
+      action_data.push({
+        key: keyname,
+        value: value_str
+      });
+    });
+
+    var result = [];
+
+    for (var i = 0; i < action_data.length; i++) {
+
+      var mini = {};
+      
+      mini[action_data[i].key] = action_data[i].value;
+
+      result.push(mini);
+    };
+    console.log(result);
+    return result;
+  }
 
   function pushRecipe() {
     var Recipe = Parse.Object.extend("Recipe");
     var recipe = new Recipe();
 
     var name_p = $("#recipe-name").val();
-    // var ingredients_p = $(".ingredient-item").val();
-    // console.log(ingredients_p);
-    var actions_p = $(".action-item").val();
     var time_p = $("#recipe-time").val();
 
     var ingredients_p = assemble_ingredients();
+    var actions_p = assemble_actions();
 
 
 

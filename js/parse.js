@@ -168,16 +168,16 @@ function pushRecipe() {
     var ingredients_p = assemble_ingredients();
     var actions_p = assemble_actions();
 
-    var user_id;
-
     FB.api(
       "/me", function(response){
-        user_id = response;
+        console.log(typeof response.id);
+
+        recipe.save({user: response.id, name: name_p, ingredients: ingredients_p, actions: [actions_p], time: time_p, date: new Date()}).then(function(object) {
+          alert("Your data was finally pushed");
+        });
       }
     );
 
-    recipe.save({name: name_p, ingredients: ingredients_p, actions: [actions_p], time: time_p, date: new Date()}).then(function(object) {
-      alert("Your data was finally pushed");
-    });
+    
 
   }

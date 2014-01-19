@@ -11,13 +11,6 @@ $(document).ready(function(){
   $("#mybook-body").hide();
   $("#preview").hide();
 
-  // $("#site-name").click();
-
-  // if (!logged_in && $("#login").hasClass("hide")) {
-  //   $("#index-body").show();
-  //   logged_in = true;
-  // }
-
   $("#go-home-lnk, #site-name").click(function() {
     $("#index-body").show();
     $("#mybook-body").hide();
@@ -38,73 +31,78 @@ $(document).ready(function(){
     }
   });
 
-  $(".dynamic-ingredient").submit(function(e) {
+  $("#img-upload-pretty").click(function(e){
     e.preventDefault();
-
-    var key = $(this).attr('id');
-    var keyplushash = "#"+key;
-    var valu = $(keyplushash+" input").val();
-
-    if (valu == "") return false;
-
-    var used_string = "ingredient-"+num_ingredients;
-
-    // alert(used_string);
-
-    ingredients.push({used_string: valu});
-    // ingredients[used_string] = valu;
-
-    console.log("("+used_string+", "+valu+")");
-
-    num_ingredients++;
-    console.log(num_ingredients);
-
-
-    $(keyplushash+" input").val('');
-
-    var $new_li = $("<li class='list-group-item' id='li-"+used_string+"'>"+valu+"</li>)");
-
-    console.log($new_li);
-
-    $("#ingredient-ul").append($new_li);
-
+    $("#img-upload").click();
   });
 
-  $(".dynamic-action").submit(function(e) {
+  $("#new-card-data").submit(function(e) {
     e.preventDefault();
-    var key = $(this).attr('id');
-    console.log(key);
-    var keyplushash = "#"+key;
-    var valu = $(keyplushash+" input").val();
-    console.log(valu);
+    var $submitted_item = $(document.activeElement);
+    // console.log($submitted_item.attr('class'));
+    if ($submitted_item.hasClass("ingredient-item")){
+      
+      console.log("Got ingredient to fire");
 
-    if (valu == "") return false;//stop submitting blanks
+      var $name_ingredient = $submitted_item.attr('name');
+      var $value_ingredient = $submitted_item.val();
 
-    var used_string = "action-"+num_actions;
-    console.log("Used_string is " + used_string);
+      if ($value_ingredient == "") return false;
 
-    // alert(used_string);
+      var $new_li = $("<li class='list-group-item' meta="+$name_ingredient+" id='li-"+$name_ingredient+"'>"+$value_ingredient+"</li>)");      
 
-    // actions.push({used_string: valu});
+      $("#ingredient-ul").append($new_li);
 
-    // actions["ingredient-"+num_actions] = valu;
+      $submitted_item.hide();
 
-    // console.log("("+used_string+", "+valu+")");
+      num_ingredients++;
 
-    num_actions++;
-    console.log(num_actions);
+      var $new_input = $("<input type='text' class='form-control ingredient-item' name='ingredient-"+num_ingredients+"' placeholder='New Ingredient'>");
 
+      $("#dynamic-ingredient").append($new_input);
 
-    $(keyplushash+" input").val('');//clear out the field
+      $("input[name=ingredient-"+num_ingredients+"]").focus();
+    }
+    else if ($submitted_item.hasClass("action-item")){
+      
+      console.log("Got action to fire");
 
+      var $name_action = $submitted_item.attr('name');
+      var $value_action = $submitted_item.val();
 
+      if ($value_action == "") return false;
 
-    var $new_li = $("<li class='list-group-item' id='li-"+used_string+"'>"+valu+"</li>)");
+      var $new_li = $("<li class='list-group-item' meta="+$name_action+" id='li-"+$name_action+"'>"+$value_action+"</li>)");      
 
-    console.log($new_li);
+      $("#action-ul").append($new_li);
 
-    $("#action-ul").append($new_li);
+      $submitted_item.hide();
 
+      num_actions++;
+
+      var $new_input = $("<input type='text' class='form-control action-item' name='action-"+num_actions+"' placeholder='New Step'>");
+
+      $("#dynamic-action").append($new_input);
+
+      $("input[name=action-"+num_actions+"]").focus();
+
+    }
+    else {
+      if ($("#recipe-name").val() == ""){
+        $("#recipe-name").val("Untitled");
+        if ($("input[name=ingredient-"+num_ingredients+"]").val() == ""){
+          // $("input[name=ingredient-"+num_ingredients+"]").remove();
+        }
+        if ($("input[name=action-"+num_actions+"]").val() == ""){
+          // $("input[name=action-"+num_actions+"]").remove();
+        }
+      }
+      // var data = frm.serializeArray();
+      // var data = $.toJSON(frm.serializeArray());
+      // console.log(data);
+      console.log("About to push");
+      pushRecipe();
+    }
   });
 
   function readURL(input) {
@@ -120,40 +118,6 @@ $(document).ready(function(){
   $("#img-upload").change(function() {
     readURL(this);
     $("#preview").show();
+    $("#img-upload-pretty").text("Change Photo")
   });
-
-  $("#save-card-btn").click(function(e){
-    e.preventDefault();
-    $(".dynamic-ingredient").submit();
-    $(".dynamic-action").submit();
-    // alert("Need to JSONify the data");
-    var JSONdata = JSONify();
-    console.log(JSONdata);
-    pushRecipe(JSONify);
-  });
-
-  function JSONify(){
-    var send_data = {
-      "name": $(".new-card-data input").val(),
-      "ingredients": [],
-      "actions": [],
-      "time": $("#time-submit input").val()
-    };
-    // send_data['name'] = $(".new-card-data input").val();
-    // send_data['pic'] = $("#preview").attr('src');
-    // send_data['ingredients'] = ingredients;
-    // send_data['actions'] = actions;
-    // send_data['time'] = $("#time-submit input").val();
-    send_data.ingredients = ingredients;
-    send_data.actions = actions;
-    console.log(send_data);
-    return send_data;
-  }
-
-  $(".new-card-data").submit(function(e){
-    e.preventDefault();
-  });
-
-
-
 });

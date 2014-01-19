@@ -63,17 +63,66 @@
       <div class="welcome">
         <h1 class="on-bg-text">Welcome!</h1>
         <p class="lead on-bg-text">Add your custom recipes here.</p>
-        <div id="login-prompt" class="container ">
+        <div id="login-prompt" class="container hide">
           <p class="lead on-bg-text">But first: Please Authenticate with Facebook</p>
           <fb:login-button show-faces="true" width="200" class="hide" id="real-fb-login" max-rows="1"></fb:login-button>
           <button id="login" class="btn btn-primary">Login with Facebook</button>
         </div>
         
-
-
-
-
         <div class="container new-card">
+          
+          <form action="#" role="form" id="new-card-data">
+            
+            <input type="text" id="recipe-name" class="form-control" name="name" placeholder="Name Your Creation" style="font-weight: bold;">
+
+            <img id="preview" src="#" alt="recipe-image" /><br>
+            <input type="file" name="uploadField" id="img-upload" class="form-control hide" width="200px;"/>
+
+            <button id="img-upload-pretty" class="btn btn-success" type="button">Add A Photo</button>
+
+            <div class="vertical-line"></div>
+            <div class="ingredient-list form-group">
+              
+              <p class="card-label lead">Ingredients.</p>
+              <ul id="ingredient-ul" class="list-group"></ul>
+              <span id="dynamic-ingredient">
+                <input type="text" name="ingredient-0" class="form-control ingredient-item" placeholder="New Ingredient">
+              </span>
+            
+            </div>
+            
+            <div class="vertical-line"></div>
+            
+            <div class="action-list form-group">
+              
+              <p class="card-label lead">Procedure.</p>
+              <ul id="action-ul" class="list-group"></ul>
+              <span id="dynamic-action">
+                <input type="text" name="action-0" class="form-control action-item" placeholder="New Step">
+              </span>
+            
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <div class="form-group">
+
+              <p class="card-label lead">Preparation Time.</p>
+              <input type="text" id="recipe-time" name="time" class="form-control" placeholder="How Long Start to Finish?">
+
+            </div>
+
+            <button id="save-card-btn" class="btn btn-primary new-row" type="submit">Save This Recipe</button> 
+
+          </form>
+        
+        </div><!-- .new-card -->
+      
+      </div> <!-- end .welcome -->
+
+    </div><!-- index-body -->
+
+        <!-- <div class="container new-card">
           <form role="form" class="new-card-data">
             <input type="text" id="recipe-name" class="form-control" placeholder="Name" style="font-weight: bold;">
             <img id="preview" src="#" alt="recipe-image" />
@@ -85,70 +134,114 @@
               <ul id="ingredient-ul" class="list-group">
 
               </ul>
-              <form class="dynamic-ingredient">
+              <form class="dynamic-ingredient" id="ingredient-0">
                 <input type="text" class="form-control ingredient-item" placeholder="New Ingredient">
               </form>
             </div>
-            <!-- <button id="new-ingredient"class="btn btn-warning new-row">Add Ingredient</button> -->
+            <button id="new-ingredient"class="btn btn-warning new-row">Add Ingredient</button>
             <div class="vertical-line"></div>
             <div class="action-list">
               <p class="card-label lead">Procedure:</p>
               <ul id="action-ul" class="list-group">
 
               </ul>
-              <form class="dynamic-action">
+              <form class="dynamic-action" id="action-0">
                 <input type="text" class="form-control action-item" placeholder="New Step">
               </form>
             </div>
-            <!-- <button id="new-action" class="btn btn-warning new-row">Add Step</button> -->
+            <! <button id="new-action" class="btn btn-warning new-row">Add Step</button>
             <div class="vertical-line"></div>
           <form id="time-submit">
             <p class="card-label lead">Preparation Time:</p>
             <input type="text" class="form-control" placeholder="How Long Start to Finish?">
             <button id="save-card-btn" class="btn btn-primary new-row" type="submit">Save This Recipe</button>
           </form>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> end .welcome -->
       <!-- <footer>
         <p>&copy; Company 2013</p>
       </footer> -->
-    </div><!-- index-body -->
+    <!-- </div>index-body -->
 
     <div class="container" id="mybook-body">
       <div class="welcome">
         <h1 class="on-bg-text">Your Recipes</h1>
         <p class="lead on-bg-text">Share Away!</p>
 
-        <a href="#"><div class="recipe-view container" id="recipe-num">
-          <div class="recipe-view-text">
-            <p class="recipe-view-title"><a id="recipe-num-link" href="#"><span class="lead">Sample</span></a><span class="recipe-view-time">         (36 minutes)</span></p>
-            <div class="social-share">
-              <div class="pinterest-share-button share-button">
-                <a href="http://www.pinterest.com/pin/create/button/
-                    ?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F
-                    &media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg
-                    &description=Next%20stop%3A%20Pinterest"
-                    data-pin-do="buttonPin"
-                    data-pin-config="above">
-                    <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
-                </a>
+        <a href="#">
+          <div class="recipe-view container" id="recipe-num">
+            <div class="recipe-view-text">
+              <p class="recipe-view-title"><a id="recipe-num-link" href="#"><span class="lead">MHacks for Dinner? Again?</span></a><span class="recipe-view-time">         (36 hours)</span></p>
+              <div class="social-share">
+                <div class="pinterest-share-button share-button">
+                  <a href="http://www.pinterest.com/pin/create/button/
+                      ?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F
+                      &media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg
+                      &description=Next%20stop%3A%20Pinterest"
+                      data-pin-do="buttonPin"
+                      data-pin-config="above">
+                      <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
+                  </a>
+                </div>
+                <div class="fb-share-button share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=397989610346916";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
               </div>
-              <div class="fb-share-button share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
-              <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=397989610346916";
-                fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));</script>
             </div>
-          </div>
-          <div class="recipe-view-pic">
-            <img src="assets/mhacks.png">
-          </div>
-        </div></a>
+            <div class="recipe-view-pic">
+              <img src="assets/mhacks.png">
+            </div>
+          </div> <!-- .recipe-view -->
+        </a>
+        <a href="#">
+          <div class="recipe-view container" id="recipe-num">
+            <div class="recipe-view-text">
+              <p class="recipe-view-title"><a id="recipe-num-link" href="#"><span class="lead">It's the Meat ya Can't Beat!</span></a><span class="recipe-view-time">         (20 minutes)</span></p>
+              <div class="social-share">
+                <div class="pinterest-share-button share-button">
+                  <a href="http://www.pinterest.com/pin/create/button/
+                      ?url=http%3A%2F%2Fwww.flickr.com%2Fphotos%2Fkentbrew%2F6851755809%2F
+                      &media=http%3A%2F%2Ffarm8.staticflickr.com%2F7027%2F6851755809_df5b2051c9_z.jpg
+                      &description=Next%20stop%3A%20Pinterest"
+                      data-pin-do="buttonPin"
+                      data-pin-config="above">
+                      <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" />
+                  </a>
+                </div>
+                <div class="fb-share-button share-button" data-href="http://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1&appId=397989610346916";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+              </div>
+            </div>
+            <div class="recipe-view-pic">
+              <img src="assets/demo.png">
+            </div>
+            <!-- <div class="container recipe-view-desc">
+              
+            </div> -->
+          </div> <!-- .recipe-view -->
+        </a>
       </div>
     </div>
+
+    <!-- <div class="container page-popup">
+      <div class="row">
+        <div class="form-group col-lg-8">
+          <p>Sample</p>
+        </div>
+      </div>
+
+    </div> -->
 
     <!-- <div class="container line-header ">
       <div class=" header-margin margin"></div>
@@ -174,6 +267,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery.json-2.4.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/fb.js"></script>
     <script src="http://www.parsecdn.com/js/parse-1.2.16.min.js"></script>

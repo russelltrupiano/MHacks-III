@@ -1,8 +1,12 @@
+html {
+  min-width: 425px;
+}
+
 body {
   padding-top: 35px;
   /*background: #FF7F24;*/
   background: url('../assets/tile.png');
-
+  padding-bottom: 35px;
   /*opacity: .4;*/
 }
 
@@ -37,7 +41,15 @@ body {
   border-radius: 5px;
   margin: auto;
   background: url('../assets/cardbg.png');
+}
 
+.page-popup {
+  padding: 50px;
+  padding-top: 30px;
+  border: 1px gray solid;
+  border-radius: 5px;
+  margin: auto;
+  background: url('../assets/cardbg.png');
 }
 
 .ingredient-list-amount {
@@ -67,6 +79,9 @@ body {
 
 #save-card-btn {
   margin-top: 30px;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .card-label {
@@ -81,6 +96,7 @@ body {
 #preview {
   max-height: 150px;
   max-width: 150px;
+  margin-bottom: 10px;
 }
 
 #img-upload {
@@ -99,7 +115,14 @@ body {
   background: url('../assets/recipebackground.png');
   padding-top: 15px;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
+
+/*.recipe-view-desc {
+  clear: both;
+  background: url('../assets/recipebackground.png');
+  border-bottom-radius: 5px;
+}*/
 
 .recipe-view-text {
   float: left;
@@ -174,4 +197,11 @@ body {
 
 li {
   text-align: left;
+}
+
+#img-upload-pretty {
+  /*margin: auto;*/
+  margin-bottom: 10px;
+  /*clear: both;*/
+  width: 30%;
 }

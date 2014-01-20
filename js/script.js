@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  // FBLogin();
+
   var num_ingredients = 0;
   var num_actions = 0;
   var ingredient_fired = false;
@@ -8,12 +10,17 @@ $(document).ready(function(){
   var ingredients = [];
   var actions = [];
 
-  $("#mybook-body").hide();
+  console.log("variables set");
+
+  // console.log("About to init FB");
+  
+
+  $("#mybook-body").addClass("hide");
   $("#preview").hide();
 
   $("#go-home-lnk, #site-name").click(function() {
-    $("#index-body").show();
-    $("#mybook-body").hide();
+    $("#index-body").removeClass("hide");
+    $("#mybook-body").addClass("hide");
     $("#home-li").addClass("active");
     $("#mybook-li").removeClass("active");
     if (!$(".navbar-toggle").hasClass("collapsed")){
@@ -22,8 +29,11 @@ $(document).ready(function(){
   });
 
   $("#go-mybook-lnk").click(function() {
-    $("#index-body").hide();
-    $("#mybook-body").show();
+    
+    // if (!($("#login-prompt").hasClass("hide"))){
+      $("#index-body").addClass("hide");
+      $("#mybook-body").removeClass("hide");
+    // }
     $("#mybook-li").addClass("active");
     $("#home-li").removeClass("active");
     if (!$(".navbar-toggle").hasClass("collapsed")){
@@ -141,5 +151,22 @@ $(document).ready(function(){
     $("#remove-upload").hide();
   });
 
+  $("#mybook-body").click(function(){
+    fetchUserData();
+  });
   
+  window.fbAsyncInit = function() {
+    Parse.FacebookUtils.init({
+      appId      : '397989610346916',
+      channelURL : 'http://localhost/~russell/MHacks',
+      // status     : true, //check login status
+      cookie     : true, //enable cookies to allow Parse to access session
+      xfbml      : true // parse XFBML
+    });
+    // FBLogin();
+    console.log("Authenticating");
+    auth_check();
+    // fetchUserData();
+  };
+
 });

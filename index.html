@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
-    <title>How Did I Make That?</title>
+    <title>Custom Cookbook</title>
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -40,23 +40,18 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a id="site-name" class="navbar-brand" href="#">How Did I Make That?</a>
+          <a id="site-name" class="navbar-brand" href="#">Custom Cookbook</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active" id="home-li"><a href="#" id="go-home-lnk">Home</a></li>
             <li id="mybook-li"><a href="#mybook" id="go-mybook-lnk">My Book</a></li>
           </ul>
-          <form class="navbar-form navbar-right" role="form">
+          <!-- <form class="navbar-form navbar-right" role="form">
             <div class="form-group">
-              <!-- <div class="input-group"> -->
-                <!-- <span class="input-group-btn"> -->
-                    <!-- <button class="btn btn-default" type="buttpn">Search</button> -->
-                <!-- </span> -->
                 <input type="search" placeholder="Search My Recipes..." class="form-control">
-              <!-- </div> -->
             </div>
-          </form>
+          </form> -->
         </div><!--/.navbar-collapse -->
       </div>
     </div>
@@ -64,15 +59,16 @@
     <div class="container" id="index-body">
 
       <div class="welcome">
-        <h1 class="on-bg-text">Welcome!</h1>
-        <p class="lead on-bg-text">Add your custom recipes here.</p>
+        <p class="on-bg-text lead" id="recipe-header">Welcome to Custom Cookbook!</p>
+        <p class="lead on-bg-text">The only place on the web to create personal recipes tailored to you.</p>
         <div id="login-prompt" class="container">
-          <p class="lead on-bg-text">But first: Please Authenticate with Facebook</p>
+          <img src="assets/pacman.gif">
+          <!-- <p class="lead on-bg-text">But first: Please Authenticate with Facebook</p> -->
           <!-- <fb:login-button show-faces="true" width="200" class="hide" id="real-fb-login" max-rows="1"></fb:login-button>
           <button id="login" class="btn btn-primary">Login with Facebook</button> -->
         </div>
         
-        <div class="container new-card">
+        <div id="no-margin" class="container new-card hide">
           
           <form action="#" role="form" id="new-card-data">
             
@@ -85,7 +81,7 @@
             <button id="img-upload-pretty" class="btn btn-success" type="button">Add A Photo</button>
             <button id="remove-upload" class="btn btn-danger hide" type="button">X</button>
 
-            <div class="vertical-line"></div>
+            <!-- <div class="vertical-line"></div> -->
             <div class="ingredient-list form-group">
               
               <p class="card-label lead">Ingredients.</p>
@@ -101,7 +97,7 @@
             <div class="action-list form-group">
               
               <p class="card-label lead">Procedure.</p>
-              <ul id="action-ul" class="list-group"></ul>
+              <ol id="action-ul" class="list-group"></ol>
               <span id="dynamic-action">
                 <input type="text" name="action-0" class="form-control action-item" placeholder="New Step">
               </span>
@@ -168,10 +164,10 @@
       </footer> -->
     <!-- </div>index-body -->
 
-    <div class="container" id="mybook-body">
+    <div class="container hide" id="mybook-body">
       <div class="welcome">
-        <h1 class="on-bg-text">Your Recipes</h1>
-        <p class="lead on-bg-text">Share Away!</p>
+        <p class="on-bg-text lead" id="recipe-header">My Recipes.</p>
+        <!-- <p class="lead on-bg-text">Share Away!</p> -->
 
         <a href="#">
           <div class="recipe-view container" id="recipe-num">

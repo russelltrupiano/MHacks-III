@@ -1,20 +1,4 @@
-
 Parse.initialize("SvtOXpjNcHr97ff1Ii1Z3v9t9h8glThKmUByUCji", "shMVnpVWSjl12KcbONuCobrhYCmSWujzs7QMhAlW");
-
-
-
-window.fbAsyncInit = function() {
-  Parse.FacebookUtils.init({
-    appId      : '397989610346916',
-    channelURL : 'http://localhost/~russell/MHacks',
-    status     : true, //check login status
-    cookie     : true, //enable cookies to allow Parse to access session
-    xfbml      : true // parse XFBML
-  });
-  // FBLogin();
-  auth_check();
-  fetchUserData();
-};
 
 // Here 'null' is replaced witht he permissions the app needs
 // ex) Parse.FacebookUtils.logIn("user_likes, email", {//body});
@@ -23,11 +7,11 @@ function FBLogin(){
     success: function(user) {
       if (!user.existed()){
         console.log("User is signed up and logged in through Facebook");
-        $("#login-prompt").hide();
+        $("#login-prompt").addClass("hide");
       }
       else {
-        $("#login-prompt").hide();
-        $(".new-card").show();
+        $("#login-prompt").addClass("hide");
+        $(".new-card").removeClass("hide");
         console.log("User logged in through Facebook");
       }
     },
@@ -40,50 +24,24 @@ function FBLogin(){
 function auth_check(){
   if(Parse.User.current()){
     if (Parse.FacebookUtils.isLinked(Parse.User.current())) {
-      $("#login-prompt").hide();
-      $(".new-card").show();
+      $("#login-prompt").addClass("hide");
+      $(".new-card").removeClass("hide");
       console.log("Welcome Facebook User");
     }
     else {
-      $("#login-prompt").show();
-      $(".new-card").hide();
+      $("#login-prompt").removeClass("hide");
+      $(".new-card").addClass("hide");
       console.log("User needs to log in 1");
       FBLogin();
     }
   }
   else {
-    $("#login-prompt").show();
-    $(".new-card").hide();
+    $("#login-prompt").removeClass("hide");
+    $(".new-card").addClass("hide");
     console.log("User needs to log in 2");
     FBLogin();
   }
 }
-
-
-
-// .getLoginStatus(function(response) {
-//   if (response.status === 'connected') {
-//     console.log('connected');
-//     // user is good to go
-//     // setUserInfo(FB, response);
-//     // $(".new-card").show();
-//     // $("#login-prompt").hide();
-
-//   } else if (response.status === 'not_authorized') {
-//     // the user is logged in to Facebook, 
-//     // but has not authenticated your app
-//     console.log('no auth');
-
-//     // $(".new-card").hide();
-//     // $("#login-prompt").show();
-//   } else {
-//     // the user isn't logged in to Facebook.
-//     console.log('no logged in');
-
-//     // $("#index-body").hide();
-//     // $("#login-prompt").show();
-//   }
-// });
 
 (function(d, s, id){
    var js, fjs = d.getElementsByTagName(s)[0];
@@ -189,15 +147,23 @@ function pushRecipe() {
 }
 
 function fetchUserData() {
+  var Recipe = Parse.Object.extend("Recipe");
+  var query = new Parse.Query(Recipe);
   FB.api(
     "/me", function(response){
-      var Recipe = Parse.Object.extend("Recipe");
-
-      var query = new Parse.Query(Recipe);
-      // var uniq_user = response.id;
-      console.log("uniq_user: "+response.id);
-      query.contains("user", "1558874091").each(function(event) {
-        console.log(event[name]);
+      query.equalTo("user", response.id);
+      query.find({
+        success: function(results) {
+          console.log(results.length);
+          console.log(results);
+          for (var i = 0; i < results.length; i++) { 
+            var object = results[i];
+            console.log(object.id + ' - ' + object.get('name'));
+          }
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
       });
     }
   );

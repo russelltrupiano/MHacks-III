@@ -4,28 +4,12 @@ html {
 
 body {
   padding-top: 35px;
-  /*background: #FF7F24;*/
   background: url('../assets/tile.png');
   padding-bottom: 35px;
-  /*opacity: .4;*/
 }
 
-#header {
-  /*background: #FFE4B5;*/
-  /*border-radius: 1px solid #FFE4B5;*/
-}
-
-#site-name {
-  /*color: #CD3700;*/
-}
-
-#search-bar {
-  /*text-align: right;*/
-  /*border-radius: 20px;*/
-}
 
 .welcome {
-  /*padding: 40px 15px;*/
   padding-top: 40px;
   text-align: center;
 }
@@ -41,6 +25,15 @@ body {
   border-radius: 5px;
   margin: auto;
   background: url('../assets/cardbg.png');
+}
+
+#no-margin {
+  margin-right: 0;
+  width: 100%;
+}
+
+#recipe-header {
+  font-size: 50px;
 }
 
 .page-popup {
@@ -60,7 +53,7 @@ body {
   height: 1px;
   width: 100%;
   background: gray;
-
+  margin: auto;
 }
 
 .new-card input {
@@ -79,9 +72,10 @@ body {
 
 #save-card-btn {
   margin-top: 30px;
-  width: 100%;
+  width: 90%;
   padding-top: 20px;
   padding-bottom: 20px;
+  font-size: 1.5em;
 }
 
 .card-label {
@@ -106,7 +100,6 @@ body {
 }
 
 #login {
-  /*margin-top: 8px;*/
   margin-bottom: 10px;
 }
 
@@ -115,14 +108,8 @@ body {
   background: url('../assets/recipebackground.png');
   padding-top: 15px;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
-
-/*.recipe-view-desc {
-  clear: both;
-  background: url('../assets/recipebackground.png');
-  border-bottom-radius: 5px;
-}*/
 
 .recipe-view-text {
   float: left;
@@ -200,7 +187,7 @@ li {
 }
 
 #img-upload-pretty {
-  /*margin: auto;*/
+  margin: auto;
   margin-bottom: 10px;
   /*clear: both;*/
   width: 30%;
